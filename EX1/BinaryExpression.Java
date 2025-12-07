@@ -23,7 +23,10 @@ public class BinaryExpression implements Expression
     public void setRight(Number right) {
         this.right = right;
     }
-    
+
+
     @Override
-    public double calulate(){}
+    public double calculate() {
+        return 0;
+    }
 }

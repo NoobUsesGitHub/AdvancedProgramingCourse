@@ -1,12 +1,11 @@
 public class Plus extends BinaryExpression
 {
     public Plus(Number left, Number right) {
-        this.left = left;
-        this.right = right;
+        super(left, right);
     }
     
     @Override
-    public double calulate(){
-        return left.getValue() + right.getValue();
+    public double calculate(){
+        return this.getLeft().getValue() + this.getRight().getValue();
     }
 }
