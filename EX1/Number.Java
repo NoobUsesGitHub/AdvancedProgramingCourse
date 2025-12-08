@@ -1,4 +1,4 @@
-public class Number {
+public class Number implements Expression {
     private double value;
 
     public Number(double value) {
@@ -11,5 +11,10 @@ public class Number {
 
     public void setValue(double value) {
         this.value = value;
+    }
+
+    @Override
+    public double calculate() {
+        return value;
     }
 }
