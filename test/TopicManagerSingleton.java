@@ -23,7 +23,7 @@ public class TopicManagerSingleton {
                 Topic t=(Topic)this.topics.get(key);
                 if(t==null)
                     this.topics.put(key,new Topic(key));
-                return t;
+                return (Topic)this.topics.get(key);
 
             }
 
@@ -34,7 +34,5 @@ public class TopicManagerSingleton {
             public void clear(){
                 this.topics.clear();
             }
-
-
         }
 }
