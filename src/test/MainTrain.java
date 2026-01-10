@@ -1,10 +1,10 @@
-package test;
+package src.test;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Random;
 
-import test.TopicManagerSingleton.TopicManager;
+import src.test.TopicManagerSingleton.TopicManager;
 
 public class MainTrain { // simple tests to get you going...
 

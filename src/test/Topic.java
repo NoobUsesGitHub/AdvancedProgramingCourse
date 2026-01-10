@@ -1,4 +1,4 @@
-package project_biu.graph;
+package src.test;
 
 import java.util.ArrayList;
 import java.util.List;
