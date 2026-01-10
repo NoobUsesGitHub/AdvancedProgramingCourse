@@ -1,4 +1,4 @@
-package src.test;
+package test;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Date;
@@ -27,6 +27,7 @@ public class Message {
     public Message(String inputData){
         this(inputData.getBytes(StandardCharsets.UTF_8));
     }
+
 
     public Message(double inputData)
     {
