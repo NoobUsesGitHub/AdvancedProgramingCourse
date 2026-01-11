@@ -1,4 +1,4 @@
-package test;
+package graph;
 
 import java.util.LinkedList;
 
@@ -24,7 +24,6 @@ public class Topic {
     {
         for( Agent sub : subs){
             sub.callback(this.name, m);
-
         }
     }
 

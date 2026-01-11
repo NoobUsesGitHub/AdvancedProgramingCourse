@@ -1,4 +1,5 @@
-package test;
+package graph;
+
 public interface Agent {
     String getName();
     void reset();
