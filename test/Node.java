@@ -16,7 +16,7 @@ public class Node {
     }
 
     public void addEdge(Node n){
-        this.edges.add(n);
+        if (!edges.contains(n)) edges.add(n);
     }
 
   
@@ -31,6 +31,32 @@ public class Node {
 
     public List<Node> getEdges() {
         return edges;
+    }
+
+    public boolean hasCycles(){
+        HashSet<Node> visited=new HashSet<>();
+        HashSet<Node> currentBranch= new HashSet<>();
+        currentBranch.add(this);
+        visited.add(this);
+        return cycleChecker(this.edges.iterator(),visited,currentBranch);
+    }
+
+    public boolean cycleChecker(Iterator<Node> i,HashSet<Node> v,HashSet<Node> b)
+    {
+        if(!i.hasNext()){return false;}
+        
+        Node t=i.next();
+        if(b.contains(t))
+            return true;
+        if(!v.contains(t))//didnt visit already
+        {
+            v.add(t);
+            b.add(t);
+            boolean foundInChild=cycleChecker(t.edges.iterator(),v,b);
+            b.remove(t);
+            if(foundInChild) return true;
+        }
+        return cycleChecker(i,v,b);
     }
 
     public void setEdges(List<Node> edges) {
