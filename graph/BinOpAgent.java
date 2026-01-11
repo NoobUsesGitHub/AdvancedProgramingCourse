@@ -1,8 +1,5 @@
-package test;
+package graph;
 
-import graph.Agent;
-import graph.Message;
-import graph.TopicManagerSingleton;
 import java.util.function.BinaryOperator;
 
 public class BinOpAgent implements Agent{

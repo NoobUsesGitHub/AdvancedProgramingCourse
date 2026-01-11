@@ -1,5 +1,6 @@
-package test;
+package graph;
 
+import test.Config;
 
 public class MathExampleConfig implements Config {
 

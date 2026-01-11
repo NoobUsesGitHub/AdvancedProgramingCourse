@@ -1,4 +1,6 @@
-import graph.*;
+import graph.Agent;
+import graph.Message;
+import graph.TopicManagerSingleton;
 
 public class printAgent implements Agent{
     private String input;
