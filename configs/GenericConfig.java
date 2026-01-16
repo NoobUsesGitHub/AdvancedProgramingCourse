@@ -6,6 +6,10 @@ public class GenericConfig {
     private String name;
     private Agent[] agents;
 
+    public GenericConfig(){
+        this.name=null;
+        this.agents=null;
+    }
     public void setConfFile(){
 
     }
@@ -21,6 +25,11 @@ public class GenericConfig {
         for (Agent a: this.agents){
             a.close();
         }
+    }
+
+    public void setConfFile(String confFile) {
+        this.name=confFile;
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }
