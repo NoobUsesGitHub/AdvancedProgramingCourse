@@ -2,6 +2,7 @@ package test;
 
 import java.util.Random;
 
+import configs.GenericConfig;
 import graph.Agent;
 import graph.Message;
 import graph.TopicManagerSingleton;

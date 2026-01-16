@@ -1,6 +1,6 @@
 package graph;
 
-import test.Config;
+import configs.Config;
 
 public class MathExampleConfig implements Config {
 
@@ -20,5 +20,6 @@ public class MathExampleConfig implements Config {
     public int getVersion() {
         return 1;
     }
+    public void close(){}
     
 }
