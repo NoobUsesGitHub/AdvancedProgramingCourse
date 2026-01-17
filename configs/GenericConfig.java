@@ -15,7 +15,7 @@ public class GenericConfig {
 
     public GenericConfig(){
         this.name=null;
-        this.agents=null;
+        this.agents=new ArrayList<>();
         this.dataList=null;
     }
 
@@ -24,10 +24,9 @@ public class GenericConfig {
         Constructor cons;
         for(int i=0;i<=this.dataList.size()-3;i=i+3){
             try{
-                cons=(Class.forName(this.dataList.get(i)).getConstructor());
-                Agent a= ((Agent)cons.newInstance([this.dataList.get(i+1).split(","), this.dataList.get(i+2).split(",")]));                
+                cons=(Class.forName(this.dataList.get(i)).getConstructor(String[].class,String[].class));
+                Agent a= ((Agent)cons.newInstance(this.dataList.get(i+1).split(","), this.dataList.get(i+2).split(",")));                
                 this.agents.add(new ParallelAgent(a));
-
             }catch(Exception e){
                 e.printStackTrace();
             }

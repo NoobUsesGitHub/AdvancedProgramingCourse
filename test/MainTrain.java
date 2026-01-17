@@ -1,19 +1,19 @@
 package test;
 
-import java.util.Random;
-
 import configs.GenericConfig;
 import graph.Agent;
 import graph.Message;
 import graph.TopicManagerSingleton;
+import java.util.Random;
 
 
 public class MainTrain {
     
     public static void main(String[] args) {
+
         int c=Thread.activeCount();
         GenericConfig gc=new GenericConfig();
-        gc.setConfFile("test/simple.conf");
+        gc.setConfFile("config_files/simple.conf");
         gc.create();
 
         if(Thread.activeCount()!=c+2){
