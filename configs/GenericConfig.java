@@ -2,7 +2,6 @@ package configs;
 
 import graph.Agent;
 import java.io.BufferedReader;
-import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
@@ -21,26 +20,21 @@ public class GenericConfig {
 
     public void create(){
         //create the agents from dataList
+        if(this.dataList==null)
+            return;
         Constructor cons;
         for(int i=0;i<=this.dataList.size()-3;i=i+3){
             try{
                 cons=(Class.forName(this.dataList.get(i)).getConstructor(String[].class,String[].class));
-                Agent a= ((Agent)cons.newInstance(this.dataList.get(i+1).split(","), this.dataList.get(i+2).split(",")));                
+                Agent a= ((Agent)cons.newInstance((Object)this.dataList.get(i+1).split(","),
+                 (Object)this.dataList.get(i+2).split(",")));
                 this.agents.add(new ParallelAgent(a));
             }catch(Exception e){
                 e.printStackTrace();
             }
             
     }
-
-
-
-
-
-
     }
-
-
 
     public String getName(){
         return this.name;
@@ -62,6 +56,7 @@ public class GenericConfig {
         try(BufferedReader b=new BufferedReader(new InputStreamReader(new FileInputStream(confFile)))){
             String line;
             while((line=b.readLine())!=null){
+                line=line.trim();
                 data.add(line);
             }
         }catch(Exception e){
@@ -70,7 +65,7 @@ public class GenericConfig {
 
         if(data.size()%3!=0){
             System.out.println("something went wrong");
-            (new EOFException()).printStackTrace();
+            (new IllegalArgumentException()).printStackTrace();
             return;
         }
         this.dataList=data; 

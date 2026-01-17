@@ -48,7 +48,7 @@ public class BinOpAgent implements Agent{
     public void callback(String topic, Message msg)
     {
         if(topic.equals(this.firstTopicName)){
-            if(msg.asDouble!=Double.NaN){
+            if(!Double.isNaN(msg.asDouble)){
                 this.v1=msg.asDouble;
                 this.v1Exist=true;
             }
@@ -57,7 +57,7 @@ public class BinOpAgent implements Agent{
         }
         if(topic.equals(this.secondTopicName))
         {
-            if(msg.asDouble!=Double.NaN){
+            if(!Double.isNaN(msg.asDouble)){
                 this.v2=msg.asDouble;
                 this.v2Exist=true;
             }

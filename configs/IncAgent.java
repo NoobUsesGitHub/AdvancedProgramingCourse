@@ -12,7 +12,7 @@ public class IncAgent implements Agent{
     private double v1;
     
     public IncAgent( String[]subs,String[] pubs){
-            this.AgentName="IncAgent: "+subs[0]+"++ ="+pubs[0];
+            this.AgentName="IncAgent: "+subs[0]+"++ ->"+pubs[0];
             this.v1=0;
             this.xTopic=subs[0];
             this.output=pubs[0];
@@ -37,7 +37,7 @@ public class IncAgent implements Agent{
     public void callback(String topic, Message msg)
     {
         if(topic.equals(this.xTopic)){
-            if(msg.asDouble!=Double.NaN){
+            if(!Double.isNaN(msg.asDouble)){
                 this.v1=msg.asDouble;
                 TopicManagerSingleton.get().getTopic(this.output).publish(new Message(v1+1));
             }
