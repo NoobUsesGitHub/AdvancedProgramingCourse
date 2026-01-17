@@ -12,7 +12,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import test.RequestParser.RequestInfo;
+import server.RequestParser;
+import server.RequestParser.RequestInfo;
 
 
 public class MainTrain { // RequestParser

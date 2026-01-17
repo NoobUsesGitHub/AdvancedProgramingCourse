@@ -1,6 +1,7 @@
 package test;
 
-import test.RequestParser.RequestInfo;
+import server.HTTPServer;
+import servlets.Servlet;
 
 
 public class MyHTTPServer extends Thread implements HTTPServer{
